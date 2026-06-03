@@ -26,22 +26,3 @@ The codebase is structured to handle larger text payloads without memory leaks:
 * **Core:** Python 3.12, PyTorch (v2.5.1+cu121 / v2.6+), Transformers
 * **Data Processing:** Pandas, Google API Client, Langdetect, Emoji
 * **Hardware:** NVIDIA CUDA 12.1
-
-
-
-     [ YouTube API ]
-                 │
-        ( fetch_comments.py ) ──> Filters Language (en)
-                 │
-          [ comments.json ] (2.3 Million Records / ~750MB)
-                 │
-        ( comment_analyzer.py ) ──> Batch Processing & CUDA (AMP)
-                 │
-     ┌───────────┼───────────┬───────────┐
-     ▼           ▼           ▼           ▼
- Sentiment    Emotion    Intention     Theme
-     └───────────┼───────────┴───────────┘
-                 │
-          [ results.json ] (Labelled Bootstrapped Dataset)
-
-  
