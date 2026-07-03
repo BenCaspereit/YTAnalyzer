@@ -7,14 +7,16 @@ import emoji
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 print("Using device:", DEVICE)
 
-COMMENTS_FILE = Path("comments.json")
-RESULTS_FILE = Path("results.json")
+BASE_DIR = Path(__file__).resolve().parent
+COMMENTS_FILE = BASE_DIR / "comments.json"
+RESULTS_FILE = BASE_DIR / "results.json"
 
 # Model Names
 MODEL_SENTIMENT = "nlptown/bert-base-multilingual-uncased-sentiment"
 MODEL_EMOTION   = "bhadresh-savani/bert-base-uncased-emotion"
 MODEL_INTENTION = "mindpadi/intent_classifier"
-MODEL_THEME     = "microsoft/deberta-v3-large"
+MODEL_THEME = "valhalla/distilbart-mnli-12-1"
+
 
 
 
@@ -103,7 +105,7 @@ def predict_theme(text):
 
 # Main processing
 def main():
-    batch_size = 8  # moderat, damit GPU/RAM nicht überlastet
+    batch_size = 8 
     comments = load_comments()
     results = load_results()
     if not comments:
