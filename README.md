@@ -13,7 +13,7 @@ The core architectural goal is to use heavy, pre-trained models (BERT/DeBERTa) a
   * **Sentiment:** 1-5 Star rating using `nlptown/bert-base-multilingual-uncased-sentiment`.
   * **Emotion:** Multi-class emotion tracking via `bhadresh-savani/bert-base-uncased-emotion`.
   * **Intention:** Dialogue intent analysis via `mindpadi/intent_classifier`.
-  * **Theme:** Zero-Shot topic assignment (20 candidate labels) via `microsoft/deberta-v3-large`.
+  * **Theme:** Zero-Shot topic assignment (20 candidate labels) via `valhalla/distilbart-mnli-12-1`.
 
 ## Dataset & Scale
 
